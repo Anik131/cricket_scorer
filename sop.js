@@ -1,5 +1,5 @@
 
-function selectopeningplayers(){
+function selectOpeninglayers(){
   function player1(){
     let cStricker = document.getElementById("cStricker").value;
     if (cStricker ==""){
