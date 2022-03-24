@@ -6,9 +6,7 @@ function TeamNameFucntion(){
   else {
       document.getElementById("hostTeamName").innerHTML = TName;
   }
-
   let VName = document.getElementById("VisitorName").value;
-  // console.log(VName);
   if (VName == ""){}
   else {
         document.getElementById("visitorTeamName").innerHTML = VName;
@@ -24,7 +22,6 @@ function StartMatchFunction(){
   else {
     document.getElementById("required1").innerHTML= "";
   }
-  console.log(HostName);
   let VisitorName = document.getElementById("VisitorName").value;
   if (VisitorName ==""){
     document.getElementById("required2").innerHTML= "Team name is required";
@@ -40,9 +37,13 @@ function StartMatchFunction(){
     Overs = 16;
   }
   console.log(Overs);
+  localStorage.setItem("HostName",HostName);
+  localStorage.setItem("VisitorName",VisitorName);
+  localStorage.setItem("Overs",Overs);
+  localStorage.setItem("OptedCheck",OptedCheck);
+  localStorage.setItem("Overs",Overs);
   if(HostName!="" && VisitorName!=""){
-  location.href = 'sop.html'+'?'+'hostname='+HostName+'&'+'visitorteam='+VisitorName+'&'+'Toss='+TossCheck+'&'+'Opted='+OptedCheck+'&'+'Overs='+Overs;
-
+  location.href = 'sop.html';
   }
 }
 //Advnce Setting function

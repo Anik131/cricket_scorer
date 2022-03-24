@@ -6,16 +6,19 @@
     <link rel="stylesheet" href="cricket.css">
     <script type="text/javascript">
       const params = new URLSearchParams(window.location.search)
-      // console.log('Hello')
+      let vName= window.localStorage.getItem("VisitorName");
     </script>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <p style="color: green;">Striker</p>
     <input type="text" id="cStricker" placeholder="Player name" >
     <p id ="required3"></p>
+    <p style="color: green;">Non-striker</p>
     <input type="text" id="nonStriker" placeholder="Player name" >
     <p id ="required4"></p>
+    <p style="color: green;">Opening bowler</p>
     <input type="text" id="oBowler" placeholder="Player name" >
     <p id ="required5"></p>
     <button class="btnStart" id ="startsubmit" onclick="selectopeningplayers()" type="submit"> Start match </button>

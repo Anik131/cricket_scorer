@@ -7,13 +7,10 @@
   <meta charset="utf-8">
   <title>Cricket scorer</title>
 </head>
-<script type="text/javascript">
-  const params = new URLSearchParams(window.location.search)
-  // console.log('Hello')
-</script>
+
 <body>
 
-    <h3>Teams</h3>
+    <h3 style="color: green;">Teams</h3>
     <div class="Team">
       <label for="Hname"></label>
       <input type="text" id="HostName" placeholder="Host Team" oninput="TeamNameFucntion()">
@@ -22,18 +19,17 @@
       <input type="text" id="VisitorName" name="lastname" placeholder="VisitorName" oninput="TeamNameFucntion()" >
       <p id ="required2"></p>
     </div>
-    <h3>Toss won by</h3>
+    <h3 style="color: green;">Toss won by</h3>
     <div class="Toss">
       <input type ="radio" name ="Toss" id = "THostTeam" value="Host Team" checked="checked" > <label id="hostTeamName">Host Team</label>
       <input type ="radio" name ="Toss" id = "TVisitorTeam" value="Visitor Name" > <label id="visitorTeamName">Visitor Name</label><br>
     </div>
-    <h3></h3>
+    <h3 style="color: green;"> Opted to? <br></h3>
     <div class="Opted">
-      Opted to? <br>
       <input type ="radio" name = "Opted" id = "Bat" value="Bat" checked="checked"> Bat
       <input type ="radio" name = "Opted" id = "Bowl" value="Bowl" > Bowl <br>
     </div>
-    <h3>Overs?</h3>
+    <h3 style="color: green;">Overs?</h3>
     <div class="Over">
       <label for="Overs"></label>
       <input type="number" id="Overs" placeholder="16" min = "0" oninput="validity.valid||(value='')">
@@ -42,4 +38,8 @@
       <button class="BtnStart" id ="startsubmit" onclick="StartMatchFunction()" type="submit"> Start match </button>
     <br>
   </body>
+  <script type="text/javascript">
+    // const params = new URLSearchParams(window.location.search)
+    // console.log('Hello')
+  </script>
   </html>

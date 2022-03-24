@@ -1,11 +1,8 @@
-<script type="text/javascript">
- const queryString = window.location.search;
- // console.log(queryString);
- const urlParams = new URLSearchParams(queryString);
- console.log(urlParams);
-  const hostname = urlParams.get('hostname')
-  console.log(hostname);
-  const visitorteam = urlParams.get('visitorteam')
-  console.log(visitorteam);
+let cStricker = localStorage.getItem("cStricker");
+let stricker = document.getElementById("stricker1");
+stricker.innerText= cStricker;
 
-</script>
+let nonStriker = localStorage.getItem("nonStriker");
+let stricker2 = document.getElementById("stricker2");
+stricker2.innerText= nonStriker;
+let oBowler = localStorage.getItem("oBowler");
