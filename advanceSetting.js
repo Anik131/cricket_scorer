@@ -6,3 +6,5 @@ function noBall(){
       noBall.setAttribute("disabled", false);
   }
 }
+
+localStorage.setItem()

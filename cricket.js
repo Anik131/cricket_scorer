@@ -37,11 +37,14 @@ function StartMatchFunction(){
     Overs = 16;
   }
   console.log(Overs);
+
+// Saving HostName, Visitor Team name, Overs, OptedCheck, Toss won by
   localStorage.setItem("HostName",HostName);
   localStorage.setItem("VisitorName",VisitorName);
-  localStorage.setItem("Overs",Overs);
+  // localStorage.setItem("Overs",Overs);
   localStorage.setItem("OptedCheck",OptedCheck);
   localStorage.setItem("Overs",Overs);
+  localStorage.setItem("Toss",TossCheck)
   if(HostName!="" && VisitorName!=""){
   location.href = 'sop.html';
   }

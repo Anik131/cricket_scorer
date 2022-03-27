@@ -20,29 +20,28 @@ tableCurrentBowler.innerText = oBowler;
 
 
 // Runs
-function zero(){
+function runZero(){
     let zero = 0;
 }
-function one(){
+function runOne(){
     let one = 1;
 }
-function two(){
+function runTwo(){
     let two = 2;
 }
-function three(){
+function runtThree(){
     let three = 3;
 }
-function four(){
+function runFour(){
     let four = 4;
 }
-function five(){
+function runFive(){
     let five = 5;
     console.log(five);
 }
-function six(){
+function runSix(){
     let six = 6;
 }
-function dotdot(){
+function dotDot(){
     console.log("clicked");
 }
-
