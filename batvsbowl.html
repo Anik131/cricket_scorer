@@ -31,37 +31,37 @@
       
       <tr>
         <th id="stricker1">playerOne</th>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
+        <td id="stricker1Run">0</td>
+        <td id="stricker1Bowl">0</td>
+        <td id="stricker1Four">0</td>
+        <td id="stricker1Six">0</td>
+        <td id="stricker1StrickRate">0</td>
       </tr>
       <tr>
         <td scope="row" id="stricker2"></td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
+        <td id="stricker2Run">0</td>
+        <td id="stricker2Bowl">0</td>
+        <td id="stricker2Four">0</td>
+        <td id="stricker2Six">0</td>
+        <td id="stricker2StrickRate">0</td>
       </tr>
       <thead>
         <tr id="headeow">
           <th scope="col">Bowler</th>
+          <th scope="col">O</th>
+          <th scope="col">M</th>
           <th scope="col">R</th>
-          <th scope="col">B</th>
-          <th scope="col">4s</th>
-          <th scope="col">6s</th>
+          <th scope="col">W</th>
           <th scope="col">ER</th>
         </tr> 
       </thead>
       <tr>
         <th scope="row" id="tableCurrentBowler">Jacob</th>
-        <th>0</th>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
+        <th id="tableCurrentBowlerOver">0</th>
+        <td id="tableCurrentBowlerMaiden">0</td>
+        <td id="tableCurrentBowlerRun">0</td>
+        <td id="tableCurrentBowlerWicket">0</td>
+        <td id="tableCurrentBowlerEr">0</td>
       </tr>
     </tbody>
   </table>
@@ -103,13 +103,13 @@
       </div>
       <div class="col-10 d-flex align-items-center">
         <div>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="addRun(0,cStricker)">0</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="addRun(1,cStricker)">1</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="addRun(2,cStricker)">2</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="addRun(3,cStricker)">3</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="addRun(4,cStricker)">4</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="addRun(5,cStricker)">5</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="addRun(6,cStricker)">6</button>
+          <button type="button" class="btn btn-outline-secondary m-1" onclick="zeroRun()">0</button>
+          <button type="button" class="btn btn-outline-secondary m-1" onclick="oneRun()">1</button>
+          <button type="button" class="btn btn-outline-secondary m-1" onclick="twoRun()">2</button>
+          <button type="button" class="btn btn-outline-secondary m-1" onclick="threeRun()">3</button>
+          <button type="button" class="btn btn-outline-secondary m-1" onclick="fourRun()">4</button>
+          <button type="button" class="btn btn-outline-secondary m-1" onclick="fiveRun()">5</button>
+          <button type="button" class="btn btn-outline-secondary m-1" onclick="sixRun()">6</button>
           <button type="button" class="btn btn-outline-secondary m-1" onclick="dotDot()">...</button>
         </div>
       </div>

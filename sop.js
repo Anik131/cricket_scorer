@@ -33,14 +33,45 @@ function selectOpeninglayers(){
   player1();
   player2();
   player3();
+
+  let batsmanArray = [];
   let cStricker = document.getElementById("cStricker");
+  
+  let batsmanOne = {
+    name: cStricker.value,
+    run: 0,
+    bowl: 0,
+    four: 0,
+    six: 0,
+    strikeRate: 0
+  }
+
   let nonStriker = document.getElementById("nonStriker");
+  let batsmanTw0 = {
+    name: nonStriker.value,
+    run: 0,
+    bowl:0,
+    four: 0,
+    six: 0,
+    strikeRate: 0
+  }
+
   let oBowler = document.getElementById("oBowler");
+  let bowlerOne = {
+    name: oBowler.value,
+    over: 0,
+    maiden: 0,
+    run: 0,
+    wicket: 0,
+    economyRate: 0
+  }
+  
 
   //Store value
-  localStorage.setItem("cStricker",cStricker.value);
-  localStorage.setItem("nonStriker",nonStriker.value);
-  localStorage.setItem("oBowler",oBowler.value);
+  localStorage.setItem("batsmanOne",JSON.stringify(batsmanOne));
+  localStorage.setItem("batsmanTwo",JSON.stringify(batsmanTw0));
+  localStorage.setItem("bowlerOne",JSON.stringify(bowlerOne));
+
   if(cStricker.value!="" && nonStriker.value!="" && oBowler.value!=""){
     location.href = 'batvsbowl.html';
   }
