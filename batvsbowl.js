@@ -20,9 +20,9 @@ tableCurrentBowler.innerText = oBowler.name;
 
 // Strike Rate = (Runs Scored / Balls faced) * 100
 // Economy Rate = Runs Conceded ÷ Overs Bowled
-function zeroRun(){
-    let zero = 0;
 
+function zeroRun(){
+    let zero = 0;    
 }
 function oneRun(){
     let one = 1;
