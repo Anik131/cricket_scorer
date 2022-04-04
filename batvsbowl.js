@@ -22,25 +22,110 @@ tableCurrentBowler.innerText = oBowler.name;
 // Economy Rate = Runs Conceded ÷ Overs Bowled
 
 function zeroRun(){
-    let zero = 0;    
+    let zero = 0;
+let batsmanDetail= localStorage.getItem('batsmanOne');
+batsmanDetail= JSON.parse(batsmanDetail);
+batsmanDetail["run"] = batsmanDetail["run"]
+let batsmanOne = {
+    name: batsmanDetail["name"],
+    run: batsmanDetail["run"],
+    bowl: batsmanDetail["bowl"]+1,
+    four: 0,
+    six: 0,
+    strikeRate: 0,
+}
+localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 }
 function oneRun(){
     let one = 1;
+let batsmanDetail= localStorage.getItem('batsmanOne');
+batsmanDetail= JSON.parse(batsmanDetail);
+batsmanDetail["run"] = batsmanDetail["run"]
+
+let batsmanOne = {
+    name: batsmanDetail["name"],
+    run: batsmanDetail["run"]+1,
+    bowl: batsmanDetail["bowl"]+1,
+    four: 0,
+    six: 0,
+    strikeRate: 0,
+};
+localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 }
 function twoRun(){
+let batsmanDetail= localStorage.getItem('batsmanOne');
+batsmanDetail= JSON.parse(batsmanDetail);
+batsmanDetail["run"] = batsmanDetail["run"]
     let two =2
+    let batsmanOne = {
+        name: batsmanDetail["name"],
+        run: batsmanDetail["run"]+2,
+        bowl: batsmanDetail["bowl"]+1,
+        four: 0,
+        six: 0,
+        strikeRate: 0,
+    };
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 }
 function threeRun(){
+let batsmanDetail= localStorage.getItem('batsmanOne');
+batsmanDetail= JSON.parse(batsmanDetail);
+batsmanDetail["run"] = batsmanDetail["run"]
     let three = 3
+    let batsmanOne = {
+        name: batsmanDetail["name"],
+        run: batsmanDetail["run"]+3,
+        bowl: batsmanDetail["bowl"]+1,
+        four: 0,
+        six: 0,
+        strikeRate: 0,
+    };
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 }
 function fourRun(){
+let batsmanDetail= localStorage.getItem('batsmanOne');
+batsmanDetail= JSON.parse(batsmanDetail);
+batsmanDetail["run"] = batsmanDetail["run"]
     let four = 4
+    let batsmanOne = {
+        name: batsmanDetail["name"],
+        run: batsmanDetail["run"]+4,
+        bowl: batsmanDetail["bowl"]+1,
+        four: batsmanDetail["four"]+1,
+        six: 0,
+        strikeRate: 0,
+    };
+        localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 }
 function fiveRun(){
+let batsmanDetail= localStorage.getItem('batsmanOne');
+batsmanDetail= JSON.parse(batsmanDetail);
+batsmanDetail["run"] = batsmanDetail["run"]
     let five = 5
+    let batsmanOne = {
+        name: batsmanDetail["name"],
+        run: batsmanDetail["run"]+3,
+        bowl: batsmanDetail["bowl"]+1,
+        four: 0,
+        six: 0,
+        strikeRate: 0,
+};
+localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 }
 function sixRun(){
+    let batsmanDetail= localStorage.getItem('batsmanOne');
+batsmanDetail= JSON.parse(batsmanDetail);
+batsmanDetail["run"] = batsmanDetail["run"]
     let six = 6
+    let batsmanOne = {
+        name: batsmanDetail["name"],
+        run: batsmanDetail["run"]+3,
+        bowl: batsmanDetail["bowl"]+1,
+        four: 0,
+        six: batsmanDetail["six"]+1,
+        strikeRate: 0,
+};
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 }
 function dotDot(){
     console.log("clicked");

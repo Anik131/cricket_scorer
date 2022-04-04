@@ -32,6 +32,7 @@ function StartMatchFunction() {
 
 	let OptedCheck = document.querySelector('input[name="Opted"]:checked').value;
 	console.log(OptedCheck);
+	
 	let Overs = document.getElementById("Overs").value;
 	if (Overs == "") {
 		Overs = 16;
