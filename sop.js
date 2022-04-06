@@ -73,9 +73,9 @@ function selectOpeninglayers() {
 	bowlerArray.push(bowlerOne);
 
 	if (tossOwn == localStorage.getItem("HostName")) {
+		console.log("Bangladesh");
 		if (opted == "Bat") {
 			teams = JSON.parse(localStorage.getItem("teams"));
-
 			teams.forEach((team) => {
 				if (team.name == tossOwn) {
 					team.batsmanArray = batsmanArray;
@@ -83,12 +83,48 @@ function selectOpeninglayers() {
 			});
 			localStorage.setItem("teams", JSON.stringify(teams));
 		}
+		else{
+			teams = JSON.parse(localStorage.getItem("teams"));
+			teams.forEach((team) => {
+				if (team.name == tossOwn) {
+					team.bowlerArray = bowlerArray;
+				}
+
+			});
+			localStorage.setItem("teams", JSON.stringify(teams));
+		}
+	}
+	else if(tossOwn == localStorage.getItem("VisitorName")){
+		console.log("India");
+		if (opted == "Bat") {
+			teams = JSON.parse(localStorage.getItem("teams"));
+			teams.forEach((team) => {
+				if (team.name == tossOwn) {
+					team.batsmanArray = batsmanArray;
+				}
+			});
+			localStorage.setItem("teams", JSON.stringify(teams));
+		}
+		else{
+			teams = JSON.parse(localStorage.getItem("teams"));
+			teams.forEach((team) => {
+				if (team.name == tossOwn) {
+					team.bowlerArray = bowlerArray;
+				}
+
+			});
+			localStorage.setItem("teams", JSON.stringify(teams));
+		}
+	
 	}
 
 	//Store value
 	localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
 	localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
 	localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+	localStorage.setItem("currentBatsman","batsmanOne");
+
+
 
 	if (cStricker.value != "" && nonStriker.value != "" && oBowler.value != "") {
 		location.href = "batvsbowl.html";

@@ -18,192 +18,68 @@ let oBowler = JSON.parse(localStorage.getItem("bowlerOne"));
 let bowlerOne = document.getElementById("tableCurrentBowler");
 tableCurrentBowler.innerText = oBowler.name;
 
+// let stricker1OneRun= JSON.parse(localStorage.getItem("stricker1Run"));
+// let 
+
 // Strike Rate = (Runs Scored / Balls faced) * 100
 // Economy Rate = Runs Conceded ÷ Overs Bowled
 
+
+// Zero Run
 function zeroRun(){
-    let zero = 0;
-let batsmanDetail= localStorage.getItem('batsmanOne');
-batsmanDetail= JSON.parse(batsmanDetail);
-batsmanDetail["run"] = batsmanDetail["run"]
 
-let batsmanOne = {
-    name: batsmanDetail["name"],
-    run: batsmanDetail["run"],
-    bowl: batsmanDetail["bowl"]+1,
-    four: 0,
-    six: 0,
-    strikeRate: 0,
+if (localStorage.getItem("currentBatsman")=="batsmanOne"){
+    let batsmanOne = localStorage.getItem("batsmanOne");
+    batsmanOne = JSON.parse(batsmanOne);
+    batsmanOne.bowl = batsmanOne.bowl +1;
 }
-let bowlerDetail= localStorage.getItem('bowlerOne');
-bowlerDetail= JSON.parse(bowlerDetail);
-let bowlerOne = {
-    name: batsmanDetail["name"],
-    over: 0,
-    maiden: 0,
-    run: batsmanDetail["run"],
-    wicket: 0,
-    economyRate: 0,
-};
-localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+else{
+
 }
+let bowlerOne= localStorage.getItem('bowlerOne');
+bowlerOne= JSON.parse(bowlerOne);
+let bowl = parseFloat(bowlerOne.over) + 0.1;
+bowl = parseFloat(bowl).toFixed(1);
+bowlerOne.over = bowl;
+if((bowlerOne.over % 1).toFixed(1)== 0.6){
+    bowlerOne.over = Math.ceil(bowlerOne.over);
+    console.log(bowlerOne.over);
+}
+}
+// One Run
+
 function oneRun(){
-    let one = 1;
-let batsmanDetail= localStorage.getItem('batsmanOne');
-batsmanDetail= JSON.parse(batsmanDetail);
-batsmanDetail["run"] = batsmanDetail["run"]
 
-let batsmanOne = {
-    name: batsmanDetail["name"],
-    run: batsmanDetail["run"]+1,
-    bowl: batsmanDetail["bowl"]+1,
-    four: 0,
-    six: 0,
-    strikeRate: 0,
-};
-let bowlerDetail= localStorage.getItem('bowlerOne');
-bowlerDetail= JSON.parse(bowlerDetail);
-let bowlerOne = {
-    name: bowlerDetail["name"],
-    over: 0,
-    maiden: 0,
-    run: bowlerDetail["run"]+1,
-    wicket: 0,
-    economyRate: 0,
-};
-localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
 }
+
+// Two Run
+
 function twoRun(){
-let batsmanDetail= localStorage.getItem('batsmanOne');
-batsmanDetail= JSON.parse(batsmanDetail);
-batsmanDetail["run"] = batsmanDetail["run"]
-    let two =2
-    let batsmanOne = {
-        name: batsmanDetail["name"],
-        run: batsmanDetail["run"]+2,
-        bowl: batsmanDetail["bowl"]+1,
-        four: 0,
-        six: 0,
-        strikeRate: 0,
-    };
-let bowlerDetail = localStorage.getItem('bowlerOne');
-    bowlerDetail = JSON.parse(bowlerDetail);
-    let bowlerOne = {
-        name: bowlerDetail["name"],
-        over: 0,
-        maiden: 0,
-        run: bowlerDetail["run"]+2,
-        wicket: 0,
-        economyRate: 0,
-    };
-    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-    localStorage.setItem("bowlerOne",JSON.stringify(bowlerOne));
+
+
 }
+
+// Three Run
+
 function threeRun(){
-let batsmanDetail= localStorage.getItem('batsmanOne');
-batsmanDetail= JSON.parse(batsmanDetail);
-batsmanDetail["run"] = batsmanDetail["run"]
-    let three = 3
-    let batsmanOne = {
-        name: batsmanDetail["name"],
-        run: batsmanDetail["run"]+3,
-        bowl: batsmanDetail["bowl"]+1,
-        four: 0,
-        six: 0,
-        strikeRate: 0,
-    };
-    let bowlerDetail = localStorage.getItem('bowlerOne');
-    bowlerDetail = JSON.parse(bowlerDetail);
-    let bowlerOne = {
-        name: bowlerDetail["name"],
-        over: 0,
-        maiden: 0,
-        run: bowlerDetail["run"]+3,
-        wicket: 0,
-        economyRate: 0,
-    };
-    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-    localStorage.setItem("bowlerOne",JSON.stringify(bowlerOne));
+
 }
+
+// Four Run
+
 function fourRun(){
-let batsmanDetail= localStorage.getItem('batsmanOne');
-batsmanDetail= JSON.parse(batsmanDetail);
-batsmanDetail["run"] = batsmanDetail["run"]
-    let four = 4
-    let batsmanOne = {
-        name: batsmanDetail["name"],
-        run: batsmanDetail["run"]+4,
-        bowl: batsmanDetail["bowl"]+1,
-        four: batsmanDetail["four"]+1,
-        six: 0,
-        strikeRate: 0,
-    };
-    let bowlerDetail = localStorage.getItem('bowlerOne');
-    bowlerDetail = JSON.parse(bowlerDetail);
-    let bowlerOne = {
-        name: bowlerDetail["name"],
-        over: 0,
-        maiden: 0,
-        run: bowlerDetail["run"]+4,
-        wicket: 0,
-        economyRate: 0,
-    };
-        localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-        localStorage.setItem("bowlerOne",JSON.stringify(bowlerOne));
+
 }
+
+// Five Run
+
 function fiveRun(){
-let batsmanDetail= localStorage.getItem('batsmanOne');
-batsmanDetail= JSON.parse(batsmanDetail);
-batsmanDetail["run"] = batsmanDetail["run"]
-    let five = 5
-    let batsmanOne = {
-        name: batsmanDetail["name"],
-        run: batsmanDetail["run"]+5,
-        bowl: batsmanDetail["bowl"]+1,
-        four: 0,
-        six: 0,
-        strikeRate: 0,
-};
-let bowlerDetail = localStorage.getItem('bowlerOne');
-bowlerDetail = JSON.parse(bowlerDetail);
-let bowlerOne = {
-    name: bowlerDetail["name"],
-    over: 0,
-    maiden: 0,
-    run: bowlerDetail["run"]+5,
-    wicket: 0,
-    economyRate: 0,
-};
-localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-localStorage.setItem("bowlerOne",JSON.stringify(bowlerOne));
+
 }
+// Six Run
+
 function sixRun(){
-    let batsmanDetail= localStorage.getItem('batsmanOne');
-batsmanDetail= JSON.parse(batsmanDetail);
-batsmanDetail["run"] = batsmanDetail["run"]
-    let six = 6
-    let batsmanOne = {
-        name: batsmanDetail["name"],
-        run: batsmanDetail["run"]+3,
-        bowl: batsmanDetail["bowl"]+1,
-        four: 0,
-        six: batsmanDetail["six"]+1,
-        strikeRate: 0,
-};
-let bowlerDetail = localStorage.getItem('bowlerOne');
-bowlerDetail = JSON.parse(bowlerDetail);
-let bowlerOne = {
-    name: bowlerDetail["name"],
-    over: 0,
-    maiden: 0,
-    run: bowlerDetail["run"]+6,
-    wicket: 0,
-    economyRate: 0,
-};
-    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-    localStorage.setItem("bowlerOne",JSON.stringify(bowlerOne));
+
 }
 function dotDot(){
     console.log("clicked");
