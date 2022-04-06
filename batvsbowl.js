@@ -34,7 +34,11 @@ if (localStorage.getItem("currentBatsman")=="batsmanOne"){
     batsmanOne.bowl = batsmanOne.bowl +1;
 }
 else{
-
+    if (localStorage.getItem("currentBatsman")=="batsmanTw0"){
+        let batsmanTw0 = localStorage.getItem("batsmanTw0");
+        batsmanTw0 = JSON.parse(batsmanTw0);
+        batsmanTw0.bowl = batsmanTw0.bowl +1;
+    }
 }
 let bowlerOne= localStorage.getItem('bowlerOne');
 bowlerOne= JSON.parse(bowlerOne);
@@ -43,7 +47,7 @@ bowl = parseFloat(bowl).toFixed(1);
 bowlerOne.over = bowl;
 if((bowlerOne.over % 1).toFixed(1)== 0.6){
     bowlerOne.over = Math.ceil(bowlerOne.over);
-    console.log(bowlerOne.over);
+
 }
 }
 // One Run

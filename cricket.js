@@ -1,14 +1,16 @@
 // Toss won by-Name change
 function TeamNameFucntion() {
-	let TName = document.getElementById("HostName").value;
-	if (TName == "") {
+	let tName = document.getElementById("HostName").value;
+	if (tName == "") {
 	} else {
-		document.getElementById("hostTeamName").innerHTML = TName;
+		document.getElementById("hostTeamName").innerHTML = tName;
+		document.getElementById("THostTeam").value =tName;
 	}
-	let VName = document.getElementById("VisitorName").value;
-	if (VName == "") {
+	let vName = document.getElementById("VisitorName").value;
+	if (vName == "") {
 	} else {
-		document.getElementById("visitorTeamName").innerHTML = VName;
+		document.getElementById("visitorTeamName").innerHTML = vName;
+		document.getElementById("TVisitorTeam").value =vName;
 	}
 }
 // Submit button - Start match
@@ -25,19 +27,15 @@ function StartMatchFunction() {
 		document.getElementById("required2").innerHTML = "Team name is required";
 		document.getElementById("required2").style.color = "red";
 	}
-	console.log(VisitorName);
 
-	let TossCheck = document.getElementById("hostTeamName").innerText;
-	localStorage.setItem("Toss", TossCheck);
 
+	let toss = document.querySelector('input[name="Toss"]:checked').value;
+	console.log(toss);
 	let OptedCheck = document.querySelector('input[name="Opted"]:checked').value;
-	console.log(OptedCheck);
-	
 	let Overs = document.getElementById("Overs").value;
 	if (Overs == "") {
 		Overs = 16;
 	}
-	console.log(Overs);
 
 	// Saving HostName, Visitor Team name, Overs, OptedCheck, Toss won by
 
@@ -54,13 +52,12 @@ function StartMatchFunction() {
 	let visitorTeam = { name: VisitorName };
 	teams.push(visitorTeam);
 	localStorage.setItem("VisitorName", VisitorName);
-
-	console.log(teams);
 	localStorage.setItem("teams", JSON.stringify(teams));
 
 	// localStorage.setItem("Overs",Overs);
 	localStorage.setItem("OptedCheck", OptedCheck);
 	localStorage.setItem("Overs", Overs);
+	localStorage.setItem("toss", toss);
 	if (HostName != "" && VisitorName != "") {
 		location.href = "sop.html";
 	}
