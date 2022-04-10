@@ -55,6 +55,10 @@ function oneRun() {
 
   let batsmanTw0 = localStorage.getItem("batsmanTwo");
   batsmanTw0 = JSON.parse(batsmanTw0);
+  var row = document.getElementById("stricker1").parentNode,
+    sibling = row.previousElementSibling,
+    parent = row.parentNode;
+  parent.insertBefore(row, sibling);
 
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
@@ -122,7 +126,10 @@ function threeRun() {
 
   let batsmanTw0 = localStorage.getItem("batsmanTwo");
   batsmanTw0 = JSON.parse(batsmanTw0);
-
+  var row = document.getElementById("stricker1").parentNode,
+    sibling = row.previousElementSibling,
+    parent = row.parentNode;
+  parent.insertBefore(row, sibling);
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 3;
@@ -191,7 +198,10 @@ function fiveRun() {
 
   let batsmanTw0 = localStorage.getItem("batsmanTwo");
   batsmanTw0 = JSON.parse(batsmanTw0);
-
+  var row = document.getElementById("stricker1").parentNode,
+    sibling = row.previousElementSibling,
+    parent = row.parentNode;
+  parent.insertBefore(row, sibling);
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 5;
@@ -311,4 +321,10 @@ function economyRateCalculator(bowler) {
   let economyRate = (bowler.run / bowler.over).toFixed(2);
   bowler.economyRate = economyRate;
   return bowler;
+}
+function swapBatsman() {
+  var row = document.getElementById("stricker1").parentNode,
+    sibling = row.previousElementSibling,
+    parent = row.parentNode;
+  parent.insertBefore(row, sibling);
 }

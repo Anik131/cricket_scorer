@@ -1,124 +1,210 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
     <title></title>
   </head>
   <body>
-<div class="container">
-  <h1 id="headerTeamvsTeam">teamvsteam</h1>
-</div>
-  <div class = "container">
-  <table class="table">
-    <thead>
-      <tr id="headeow">
-        <th scope="col">Batsman</th>
-        <th scope="col">R</th>
-        <th scope="col">B</th>
-        <th scope="col">4s</th>
-        <th scope="col">6s</th>
-        <th scope="col">SR</th>
-      </tr> 
-    </thead>
-    <tbody>
-      
-      <tr>
-        <th id="stricker1">playerOne</th>
-        <td id="stricker1Run">0</td>
-        <td id="stricker1Bowl">0</td>
-        <td id="stricker1Four">0</td>
-        <td id="stricker1Six">0</td>
-        <td id="stricker1StrickRate">0</td>
-      </tr>
-      <tr>
-        <td scope="row" id="stricker2"></td>
-        <td id="stricker2Run">0</td>
-        <td id="stricker2Bowl">0</td>
-        <td id="stricker2Four">0</td>
-        <td id="stricker2Six">0</td>
-        <td id="stricker2StrickRate">0</td>
-      </tr>
-      <thead>
-        <tr id="headeow">
-          <th scope="col">Bowler</th>
-          <th scope="col">O</th>
-          <th scope="col">M</th>
-          <th scope="col">R</th>
-          <th scope="col">W</th>
-          <th scope="col">ER</th>
-        </tr> 
-      </thead>
-      <tr>
-        <th scope="row" id="tableCurrentBowler">Jacob</th>
-        <th id="tableCurrentBowlerOver">0</th>
-        <td id="tableCurrentBowlerMaiden">0</td>
-        <td id="tableCurrentBowlerRun">0</td>
-        <td id="tableCurrentBowlerWicket">0</td>
-        <td id="tableCurrentBowlerEr">0</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<!-- Wide, No ball, Byes,Leg Byes,Wicket -->
-  <div class="container">
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-      <label class="form-check-label" for="inlineCheckbox1">Wide</label>
+    <div class="container">
+      <h1 id="headerTeamvsTeam">teamvsteam</h1>
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-      <label class="form-check-label" for="inlineCheckbox2">No Ball</label>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr id="headeow">
+            <th scope="col">Batsman</th>
+            <th scope="col">R</th>
+            <th scope="col">B</th>
+            <th scope="col">4s</th>
+            <th scope="col">6s</th>
+            <th scope="col">SR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="strickerOne">
+            <td id="stricker1">Sakib</td>
+            <td id="stricker1Run">0</td>
+            <td id="stricker1Bowl">0</td>
+            <td id="stricker1Four">0</td>
+            <td id="stricker1Six">0</td>
+            <td id="stricker1StrickRate">0</td>
+          </tr>
+          <tr id="strickerTwo">
+            <td scope="row" id="stricker2"></td>
+            <td id="stricker2Run">0</td>
+            <td id="stricker2Bowl">0</td>
+            <td id="stricker2Four">0</td>
+            <td id="stricker2Six">0</td>
+            <td id="stricker2StrickRate">0</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr id="headeoww">
+            <th scope="col">Bowler</th>
+            <th scope="col">O</th>
+            <th scope="col">M</th>
+            <th scope="col">R</th>
+            <th scope="col">W</th>
+            <th scope="col">ER</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" id="tableCurrentBowler">Jacob</th>
+            <th id="tableCurrentBowlerOver">0</th>
+            <td id="tableCurrentBowlerMaiden">0</td>
+            <td id="tableCurrentBowlerRun">0</td>
+            <td id="tableCurrentBowlerWicket">0</td>
+            <td id="tableCurrentBowlerEr">0</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-      <label class="form-check-label" for="inlineCheckbox3">Byes</label>
+    <!-- Wide, No ball, Byes,Leg Byes,Wicket -->
+    <div class="container">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox1"
+          value="option1"
+        />
+        <label class="form-check-label" for="inlineCheckbox1">Wide</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox2"
+          value="option2"
+        />
+        <label class="form-check-label" for="inlineCheckbox2">No Ball</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox3"
+          value="option3"
+        />
+        <label class="form-check-label" for="inlineCheckbox3">Byes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox3"
+          value="option3"
+        />
+        <label class="form-check-label" for="inlineCheckbox3">leg Byes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox3"
+          value="option3"
+        />
+        <label class="form-check-label" for="inlineCheckbox3">Wicket</label>
+      </div>
+      <button type="button" class="btn btn-success m-1">Retire</button>
+      <button type="button" class="btn btn-success m-1" onclick="swapBatsman()">
+        Swap
+      </button>
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-      <label class="form-check-label" for="inlineCheckbox3">leg Byes</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-      <label class="form-check-label" for="inlineCheckbox3">Wicket</label>
-    </div>
-    <button type="button" class="btn btn-success m-1">Retire</button>
-    <button type="button" class="btn btn-success m-1">Swap</button>
-  </div>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-2">
-        <div class="btn-group-vertical">
-          <button type="button" class="btn btn-success m-1" onclick="">Undo</button>
-          <button type="button" class="btn btn-success m-1">Partnerships</button>
-          <button type="button" class="btn btn-success m-1">Extras</button>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <div class="btn-group-vertical">
+            <button type="button" class="btn btn-success m-1" onclick="">
+              Undo
+            </button>
+            <button type="button" class="btn btn-success m-1">
+              Partnerships
+            </button>
+            <button type="button" class="btn btn-success m-1">Extras</button>
+          </div>
+        </div>
+        <div class="col-10 d-flex align-items-center">
+          <div>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="zeroRun()"
+            >
+              0
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="oneRun()"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="twoRun()"
+            >
+              2
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="threeRun()"
+            >
+              3
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="fourRun()"
+            >
+              4
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="fiveRun()"
+            >
+              5
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="sixRun()"
+            >
+              6
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary m-1"
+              onclick="dotDot()"
+            >
+              ...
+            </button>
+          </div>
         </div>
       </div>
-      <div class="col-10 d-flex align-items-center">
-        <div>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="zeroRun()">0</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="oneRun()">1</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="twoRun()">2</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="threeRun()">3</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="fourRun()">4</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="fiveRun()">5</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="sixRun()">6</button>
-          <button type="button" class="btn btn-outline-secondary m-1" onclick="dotDot()">...</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-
-  <script src="batvsbowl.js"> 
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="batvsbowl.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
