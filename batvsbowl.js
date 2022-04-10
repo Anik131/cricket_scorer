@@ -54,29 +54,174 @@ function zeroRun() {
 }
 
 // One Run
-
 function oneRun() {
-  // localStorage.getItem("currentBatsman") == "batsmanOne" ? localStorage.setItem('currentBatsman', 'batsmanTwo') : localStorage.setItem('currentBatsman', 'batsmanOne');
+  let batsmanOne = localStorage.getItem("batsmanOne");
+  batsmanOne = JSON.parse(batsmanOne);
+
+  let batsmanTw0 = localStorage.getItem("batsmanTwo");
+  batsmanTw0 = JSON.parse(batsmanTw0);
+
+  if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+    batsmanOne.bowl = batsmanOne.bowl + 1;
+    batsmanOne.run = batsmanOne.run + 1;
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+  } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+    batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    batsmanTw0.run = batsmanTw0.run + 1;
+    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+  }
+  let bowlerOne = localStorage.getItem("bowlerOne");
+  bowlerOne = JSON.parse(bowlerOne);
+  let bowl = parseFloat(bowlerOne.over) + 0.1;
+  bowl = parseFloat(bowl).toFixed(1);
+  bowlerOne.over = bowl;
+  bowlerOne.run = bowlerOne.run + 1;
+  if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
+    bowlerOne.over = Math.ceil(bowlerOne.over);
+  }
+
+  localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+  updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
 
 // Two Run
+function twoRun() {
+  let batsmanOne = localStorage.getItem("batsmanOne");
+  batsmanOne = JSON.parse(batsmanOne);
 
-function twoRun() {}
+  let batsmanTw0 = localStorage.getItem("batsmanTwo");
+  batsmanTw0 = JSON.parse(batsmanTw0);
+
+  if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+    batsmanOne.bowl = batsmanOne.bowl + 1;
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+  } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+    batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+  }
+  let bowlerOne = localStorage.getItem("bowlerOne");
+  bowlerOne = JSON.parse(bowlerOne);
+  let bowl = parseFloat(bowlerOne.over) + 0.1;
+  bowl = parseFloat(bowl).toFixed(1);
+  bowlerOne.over = bowl;
+  if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
+    bowlerOne.over = Math.ceil(bowlerOne.over);
+  }
+
+  localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+  updateInformation(batsmanOne, batsmanTw0, bowlerOne);
+}
 
 // Three Run
+function threeRun() {
+  let batsmanOne = localStorage.getItem("batsmanOne");
+  batsmanOne = JSON.parse(batsmanOne);
 
-function threeRun() {}
+  let batsmanTw0 = localStorage.getItem("batsmanTwo");
+  batsmanTw0 = JSON.parse(batsmanTw0);
+
+  if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+    batsmanOne.bowl = batsmanOne.bowl + 1;
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+  } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+    batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+  }
+
+  let bowlerOne = localStorage.getItem("bowlerOne");
+  bowlerOne = JSON.parse(bowlerOne);
+  let bowl = parseFloat(bowlerOne.over) + 0.1;
+  bowl = parseFloat(bowl).toFixed(1);
+  bowlerOne.over = bowl;
+  if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
+    bowlerOne.over = Math.ceil(bowlerOne.over);
+  }
+  localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+  updateInformation(batsmanOne, batsmanTw0, bowlerOne);
+}
 
 // Four Run
+function fourRun() {
+  let batsmanOne = localStorage.getItem("batsmanOne");
+  batsmanOne = JSON.parse(batsmanOne);
 
-function fourRun() {}
+  let batsmanTw0 = localStorage.getItem("batsmanTwo");
+  batsmanTw0 = JSON.parse(batsmanTw0);
+
+  if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+    batsmanOne.bowl = batsmanOne.bowl + 1;
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+  } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+    batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+  }
+  let bowlerOne = localStorage.getItem("bowlerOne");
+  bowlerOne = JSON.parse(bowlerOne);
+  let bowl = parseFloat(bowlerOne.over) + 0.1;
+  bowl = parseFloat(bowl).toFixed(1);
+  bowlerOne.over = bowl;
+  if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
+    bowlerOne.over = Math.ceil(bowlerOne.over);
+  }
+
+  localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+  updateInformation(batsmanOne, batsmanTw0, bowlerOne);
+}
 
 // Five Run
+function fiveRun() {
+  let batsmanOne = localStorage.getItem("batsmanOne");
+  batsmanOne = JSON.parse(batsmanOne);
 
-function fiveRun() {}
+  let batsmanTw0 = localStorage.getItem("batsmanTwo");
+  batsmanTw0 = JSON.parse(batsmanTw0);
+
+  if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+    batsmanOne.bowl = batsmanOne.bowl + 1;
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+  } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+    batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+  }
+  let bowlerOne = localStorage.getItem("bowlerOne");
+  bowlerOne = JSON.parse(bowlerOne);
+  let bowl = parseFloat(bowlerOne.over) + 0.1;
+  bowl = parseFloat(bowl).toFixed(1);
+  bowlerOne.over = bowl;
+  if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
+    bowlerOne.over = Math.ceil(bowlerOne.over);
+  }
+  localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+  updateInformation(batsmanOne, batsmanTw0, bowlerOne);
+}
+
 // Six Run
+function sixRun() {
+  let batsmanOne = localStorage.getItem("batsmanOne");
+  batsmanOne = JSON.parse(batsmanOne);
 
-function sixRun() {}
+  let batsmanTw0 = localStorage.getItem("batsmanTwo");
+  batsmanTw0 = JSON.parse(batsmanTw0);
+
+  if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+    batsmanOne.bowl = batsmanOne.bowl + 1;
+    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+  } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+    batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+  }
+  let bowlerOne = localStorage.getItem("bowlerOne");
+  bowlerOne = JSON.parse(bowlerOne);
+  let bowl = parseFloat(bowlerOne.over) + 0.1;
+  bowl = parseFloat(bowl).toFixed(1);
+  bowlerOne.over = bowl;
+  if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
+    bowlerOne.over = Math.ceil(bowlerOne.over);
+  }
+
+  localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+  updateInformation(batsmanOne, batsmanTw0, bowlerOne);
+}
 function dotDot() {
   console.log("clicked");
 }
