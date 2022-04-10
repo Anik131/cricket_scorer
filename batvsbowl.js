@@ -18,12 +18,6 @@ let oBowler = JSON.parse(localStorage.getItem("bowlerOne"));
 let bowlerOne = document.getElementById("tableCurrentBowler");
 tableCurrentBowler.innerText = oBowler.name;
 
-// let stricker1OneRun= JSON.parse(localStorage.getItem("stricker1Run"));
-// let
-
-// Strike Rate = (Runs Scored / Balls faced) * 100
-// Economy Rate = Runs Conceded ÷ Overs Bowled
-
 // Zero Run
 function zeroRun() {
   let batsmanOne = localStorage.getItem("batsmanOne");
@@ -31,12 +25,13 @@ function zeroRun() {
 
   let batsmanTw0 = localStorage.getItem("batsmanTwo");
   batsmanTw0 = JSON.parse(batsmanTw0);
-
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
+    batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    batsmanTw0 = strikeRateCalculator(batsmanTw0);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
 
@@ -48,7 +43,7 @@ function zeroRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
-
+  bowlerOne = economyRateCalculator(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -64,11 +59,14 @@ function oneRun() {
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 1;
+    let strikeRate = (batsmanOne.run / batsmanOne.bowl) * 100;
+    batsmanOne.strikeRate = strikeRate;
+    batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0.run = batsmanTw0.run + 1;
-    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+    batsmanTw0 = strikeRateCalculator(batsmanTw0);
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
   bowlerOne = JSON.parse(bowlerOne);
@@ -79,7 +77,7 @@ function oneRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
-
+  bowlerOne = economyRateCalculator(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -95,10 +93,12 @@ function twoRun() {
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 2;
+    batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0.run = batsmanTw0.run + 2;
+    batsmanTw0 = strikeRateCalculator(batsmanTw0);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -110,7 +110,7 @@ function twoRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
-
+  bowlerOne = economyRateCalculator(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -126,10 +126,12 @@ function threeRun() {
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 3;
+    batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0.run = batsmanTw0.run + 3;
+    batsmanTw0 = strikeRateCalculator(batsmanTw0);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
 
@@ -142,6 +144,7 @@ function threeRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  bowlerOne = economyRateCalculator(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -158,11 +161,13 @@ function fourRun() {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 4;
     batsmanOne.four = batsmanOne.four + 1;
+    batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0.run = batsmanTw0.run + 4;
     batsmanTw0.four = batsmanTw0.four + 1;
+    batsmanTw0 = strikeRateCalculator(batsmanTw0);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -174,7 +179,7 @@ function fourRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
-
+  bowlerOne = economyRateCalculator(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -190,10 +195,12 @@ function fiveRun() {
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 5;
+    batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0.run = batsmanTw0.run + 5;
+    batsmanTw0 = strikeRateCalculator(batsmanTw0);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -205,6 +212,7 @@ function fiveRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  bowlerOne = economyRateCalculator(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -221,11 +229,13 @@ function sixRun() {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne.run = batsmanOne.run + 6;
     batsmanOne.six = batsmanOne.six + 1;
+    batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0.run = batsmanTw0.run + 6;
     batsmanTw0.six = batsmanTw0.six + 1;
+    batsmanTw0 = strikeRateCalculator(batsmanTw0);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -237,7 +247,7 @@ function sixRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
-
+  bowlerOne = economyRateCalculator(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -252,8 +262,6 @@ function updateInformation(batsmanOne, batsmanTw0, bowlerOne) {
   if (batBallTeamCheck.battingTeam == localStorage.getItem("HostName")) {
     teams.forEach((team) => {
       if (team.name == localStorage.getItem("HostName")) {
-        console.log(batsmanOne.name);
-        console.log(batsmanTw0.name);
         team.batsmanArray.forEach((batsMan, i) => {
           if (batsMan.name == batsmanOne.name) {
             team.batsmanArray[i] = batsmanOne;
@@ -262,7 +270,6 @@ function updateInformation(batsmanOne, batsmanTw0, bowlerOne) {
           }
         });
       } else if (team.name == localStorage.getItem("VisitorName")) {
-        console.log(localStorage.getItem("VisitorName"));
         team.bowlerArray.forEach((bowler, i) => {
           if (bowler.name == bowlerOne.name) {
             team.bowlerArray[i] = bowlerOne;
@@ -292,4 +299,16 @@ function updateInformation(batsmanOne, batsmanTw0, bowlerOne) {
     });
   }
   localStorage.setItem("teams", JSON.stringify(teams));
+}
+
+function strikeRateCalculator(batsman) {
+  let strikeRate = ((batsman.run / batsman.bowl) * 100).toFixed(2);
+  batsman.strikeRate = strikeRate;
+  return batsman;
+}
+
+function economyRateCalculator(bowler) {
+  let economyRate = (bowler.run / bowler.over).toFixed(2);
+  bowler.economyRate = economyRate;
+  return bowler;
 }
