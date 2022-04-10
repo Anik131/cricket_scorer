@@ -94,9 +94,11 @@ function twoRun() {
 
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
+    batsmanOne.run = batsmanOne.run + 2;
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    batsmanTw0.run = batsmanTw0.run + 2;
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -104,6 +106,7 @@ function twoRun() {
   let bowl = parseFloat(bowlerOne.over) + 0.1;
   bowl = parseFloat(bowl).toFixed(1);
   bowlerOne.over = bowl;
+  bowlerOne.run = bowlerOne.run + 2;
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
@@ -122,9 +125,11 @@ function threeRun() {
 
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
+    batsmanOne.run = batsmanOne.run + 3;
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    batsmanTw0.run = batsmanTw0.run + 3;
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
 
@@ -133,6 +138,7 @@ function threeRun() {
   let bowl = parseFloat(bowlerOne.over) + 0.1;
   bowl = parseFloat(bowl).toFixed(1);
   bowlerOne.over = bowl;
+  bowlerOne.run = bowlerOne.run + 3;
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
@@ -150,9 +156,13 @@ function fourRun() {
 
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
+    batsmanOne.run = batsmanOne.run + 4;
+    batsmanOne.four = batsmanOne.four + 1;
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    batsmanTw0.run = batsmanTw0.run + 4;
+    batsmanTw0.four = batsmanTw0.four + 1;
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -160,6 +170,7 @@ function fourRun() {
   let bowl = parseFloat(bowlerOne.over) + 0.1;
   bowl = parseFloat(bowl).toFixed(1);
   bowlerOne.over = bowl;
+  bowlerOne.run = bowlerOne.run + 4;
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
@@ -178,9 +189,11 @@ function fiveRun() {
 
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
+    batsmanOne.run = batsmanOne.run + 5;
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    batsmanTw0.run = batsmanTw0.run + 5;
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -188,6 +201,7 @@ function fiveRun() {
   let bowl = parseFloat(bowlerOne.over) + 0.1;
   bowl = parseFloat(bowl).toFixed(1);
   bowlerOne.over = bowl;
+  bowlerOne.run = bowlerOne.run + 5;
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
@@ -205,9 +219,13 @@ function sixRun() {
 
   if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
     batsmanOne.bowl = batsmanOne.bowl + 1;
+    batsmanOne.run = batsmanOne.run + 6;
+    batsmanOne.six = batsmanOne.six + 1;
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
+    batsmanTw0.run = batsmanTw0.run + 6;
+    batsmanTw0.six = batsmanTw0.six + 1;
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -215,6 +233,7 @@ function sixRun() {
   let bowl = parseFloat(bowlerOne.over) + 0.1;
   bowl = parseFloat(bowl).toFixed(1);
   bowlerOne.over = bowl;
+  bowlerOne.run = bowlerOne.run + 6;
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
@@ -242,7 +261,8 @@ function updateInformation(batsmanOne, batsmanTw0, bowlerOne) {
             team.batsmanArray[i] = batsmanTw0;
           }
         });
-      } else if (team.name == localStorage.getItem("VisitorTeam")) {
+      } else if (team.name == localStorage.getItem("VisitorName")) {
+        console.log(localStorage.getItem("VisitorName"));
         team.bowlerArray.forEach((bowler, i) => {
           if (bowler.name == bowlerOne.name) {
             team.bowlerArray[i] = bowlerOne;
