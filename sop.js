@@ -42,6 +42,7 @@ function selectOpeninglayers() {
 
   let batsmanOne = {
     name: cStricker.value,
+    id: "strickerOne",
     run: 0,
     bowl: 0,
     four: 0,
@@ -53,6 +54,7 @@ function selectOpeninglayers() {
   let nonStriker = document.getElementById("nonStriker");
   let batsmanTw0 = {
     name: nonStriker.value,
+    id: "strickerTwo",
     run: 0,
     bowl: 0,
     four: 0,
