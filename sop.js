@@ -66,6 +66,7 @@ function selectOpeninglayers() {
   let oBowler = document.getElementById("oBowler");
   let bowlerOne = {
     name: oBowler.value,
+    id: "currentbowler",
     over: 0,
     maiden: 0,
     run: 0,
