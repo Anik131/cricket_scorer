@@ -395,3 +395,24 @@ function swapBatsman() {
     parent = row.parentNode;
   parent.insertBefore(row, sibling);
 }
+
+function extra(checkbox) {
+  let wideballExtra = document.getElementById("wideExtra");
+  let noballExtra = document.getElementById("noExtra");
+  let byeExtra = document.getElementById("byeExtra");
+  let legByeExtra = document.getElementById("legByeExtra");
+
+  if (checkbox === wideballExtra) {
+    noballExtra.checked = false;
+    byeExtra.checked = false;
+    legByeExtra.checked = false;
+  } else if (checkbox === noballExtra) {
+    wideballExtra.checked = false;
+  } else if (checkbox === byeExtra) {
+    wideballExtra.checked = false;
+    legByeExtra.checked = false;
+  } else if (checkbox === legByeExtra) {
+    wideballExtra.checked = false;
+    byeExtra.checked = false;
+  }
+}

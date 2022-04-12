@@ -71,56 +71,40 @@
         </tbody>
       </table>
     </div>
-    <!-- Wide, No ball, Byes,Leg Byes,Wicket -->
+    <!-- Wide, No ball -->
     <div class="container">
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="inlineCheckbox1"
-          value="option1"
-        />
-        <label class="form-check-label" for="inlineCheckbox1">Wide</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="inlineCheckbox2"
-          value="option2"
-        />
-        <label class="form-check-label" for="inlineCheckbox2">No Ball</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="inlineCheckbox3"
-          value="option3"
-        />
-        <label class="form-check-label" for="inlineCheckbox3">Byes</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="inlineCheckbox3"
-          value="option3"
-        />
-        <label class="form-check-label" for="inlineCheckbox3">leg Byes</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="inlineCheckbox3"
-          value="option3"
-        />
-        <label class="form-check-label" for="inlineCheckbox3">Wicket</label>
-      </div>
+      <input
+        id="wideExtra"
+        type="checkbox"
+        name="wideno"
+        onclick="extra(this)"
+      />
+      Wide
+      <input id="noExtra" type="checkbox" name="wideno" onclick="extra(this)" />
+      No Ball
+
+      <!-- Byes, Leg byes -->
+      <input
+        id="byeExtra"
+        type="checkbox"
+        name="byelegbye"
+        onclick="extra(this)"
+      />
+      Byes
+      <input
+        id="legByeExtra"
+        type="checkbox"
+        name="byelegbye"
+        onclick="extra(this)"
+      />
+      Leg Byes
+
+      <!-- wicket -->
+      <input type="checkbox" name="wicket" onclick="wicket(this)" /> Wicket
+
       <button type="button" class="btn btn-success m-1">Retire</button>
       <button type="button" class="btn btn-success m-1" onclick="swapBatsman()">
-        Swap
+        Swap Batsman
       </button>
     </div>
 
