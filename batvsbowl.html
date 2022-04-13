@@ -76,33 +76,41 @@
       <input
         id="wideExtra"
         type="checkbox"
-        name="wideno"
+        name="extraWideNoLegByesByes"
         onclick="extra(this)"
       />
       Wide
-      <input id="noExtra" type="checkbox" name="wideno" onclick="extra(this)" />
+      <input
+        id="noExtra"
+        type="checkbox"
+        name="extraWideNoLegByesByes"
+        onclick="extra(this)"
+      />
       No Ball
 
       <!-- Byes, Leg byes -->
       <input
         id="byeExtra"
         type="checkbox"
-        name="byelegbye"
+        name="extraWideNoLegByesByes"
         onclick="extra(this)"
       />
       Byes
       <input
         id="legByeExtra"
         type="checkbox"
-        name="byelegbye"
+        name="extraWideNoLegByesByes"
         onclick="extra(this)"
       />
       Leg Byes
 
       <!-- wicket -->
-      <input type="checkbox" name="wicket" onclick="wicket(this)" /> Wicket
+      <input type="checkbox" id="wicket" name="wicket" onclick="wicket(this)" />
+      Wicket
 
-      <button type="button" class="btn btn-success m-1">Retire</button>
+      <button type="button" class="btn btn-success m-1" onclick="retire()">
+        Retire
+      </button>
       <button type="button" class="btn btn-success m-1" onclick="swapBatsman()">
         Swap Batsman
       </button>

@@ -75,6 +75,15 @@ function selectOpeninglayers() {
   };
   bowlerArray.push(bowlerOne);
 
+  let extra = {
+    id: "extraRun",
+    total: 0,
+    wide: 0,
+    noBall: 0,
+    byes: 0,
+    legByes: 0,
+  };
+
   let batBallTeamCheck = {};
 
   if (tossOwn == localStorage.getItem("HostName")) {
@@ -162,7 +171,7 @@ function selectOpeninglayers() {
   localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   localStorage.setItem("currentBatsman", batsmanOne.name);
-
+  localStorage.setItem("extraRun", JSON.stringify(extra));
   if (cStricker.value != "" && nonStriker.value != "" && oBowler.value != "") {
     location.href = "batvsbowl.html";
   }

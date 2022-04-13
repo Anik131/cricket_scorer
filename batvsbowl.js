@@ -57,7 +57,6 @@ function updateBowlerUi(bowlerUi) {
     bowlerWicket.innerText = bowler.wicket;
     let bowlerER = document.getElementById("tableCurrentBowlerEr");
     bowlerER.innerText = bowler.economyRate;
-  } else {
   }
 }
 // Zero Run
@@ -87,6 +86,9 @@ function zeroRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  // bowler extra run
+  let bowlerExtra = hasextra(0);
+  bowlerOne.run = bowlerOne.run + bowlerExtra;
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -110,6 +112,7 @@ function oneRun() {
     batsmanOne.run = batsmanOne.run + 1;
     batsmanOne = strikeRateCalculator(batsmanOne);
     updateBatsmanUi(batsmanOne);
+
     localStorage.setItem("currentBatsman", batsmanTw0.name);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
@@ -129,6 +132,10 @@ function oneRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  // bowler extra run
+  let bowlerExtra = hasextra(1);
+  bowlerOne.run = bowlerOne.run + bowlerExtra;
+
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -165,6 +172,10 @@ function twoRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  // bowler extra run
+  let bowlerExtra = hasextra(2);
+  bowlerOne.run = bowlerOne.run + bowlerExtra;
+
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -207,7 +218,11 @@ function threeRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  // bowler extra run
+  let bowlerExtra = hasextra(3);
+  bowlerOne.run = bowlerOne.run + bowlerExtra;
   bowlerOne = economyRateCalculator(bowlerOne);
+  updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
   updateInformation(batsmanOne, batsmanTw0, bowlerOne);
 }
@@ -244,6 +259,10 @@ function fourRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  // bowler extra run
+  let bowlerExtra = hasextra(4);
+  bowlerOne.run = bowlerOne.run + bowlerExtra;
+
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -285,6 +304,10 @@ function fiveRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  // bowler extra run
+  let bowlerExtra = hasextra(5);
+  bowlerOne.run = bowlerOne.run + bowlerExtra;
+
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -323,6 +346,10 @@ function sixRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
+  // bowler extra run
+  let bowlerExtra = hasextra(6);
+  bowlerOne.run = bowlerOne.run + bowlerExtra;
+
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -415,4 +442,43 @@ function extra(checkbox) {
     wideballExtra.checked = false;
     byeExtra.checked = false;
   }
+}
+
+function retire() {}
+
+function wicket() {
+  let wicket = document.getElementById("wicket");
+  if (wicket.checked) {
+    window.location = "wicket.html";
+  }
+}
+
+function hasextra(run) {
+  let hasExtraRun = localStorage.getItem("extraRun");
+  hasExtraRun = JSON.parse(hasExtraRun);
+  let bonus = 0;
+  var checkboxes = document.getElementsByName("extraWideNoLegByesByes");
+  checkboxes.forEach((item) => {
+    if (item.checked == true) {
+      bonus = 1;
+      if (document.getElementById("wideExtra") === item) {
+        hasExtraRun.wide = hasExtraRun.wide + 1 + run;
+        console.log("wide");
+      }
+      if (document.getElementById("noExtra") === item) {
+        hasExtraRun.noBall = hasExtraRun.noBall + 1;
+        console.log("noBall");
+      }
+      if (document.getElementById("byeExtra") === item) {
+        hasExtraRun.byes = hasExtraRun.byes + run;
+        console.log("byes");
+      }
+      if (document.getElementById("legByeExtra") === item) {
+        hasExtraRun.legByes = hasExtraRun.legByes + run;
+        console.log("legByes");
+      }
+    }
+  });
+  localStorage.setItem("extraRun", JSON.stringify(hasExtraRun));
+  return bonus;
 }
