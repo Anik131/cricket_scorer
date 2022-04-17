@@ -70,11 +70,13 @@ function zeroRun() {
     batsmanOne.bowl = batsmanOne.bowl + 1;
     batsmanOne = strikeRateCalculator(batsmanOne);
     updateBatsmanUi(batsmanOne);
+    partnership();
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0 = strikeRateCalculator(batsmanTw0);
     updateBatsmanUi(batsmanTw0);
+    partnership();
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
 
@@ -112,7 +114,7 @@ function oneRun() {
     batsmanOne.run = batsmanOne.run + 1;
     batsmanOne = strikeRateCalculator(batsmanOne);
     updateBatsmanUi(batsmanOne);
-
+    partnership();
     localStorage.setItem("currentBatsman", batsmanTw0.name);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
@@ -120,6 +122,7 @@ function oneRun() {
     batsmanTw0.run = batsmanTw0.run + 1;
     batsmanTw0 = strikeRateCalculator(batsmanTw0);
     updateBatsmanUi(batsmanTw0);
+    partnership();
     localStorage.setItem("currentBatsman", batsmanOne.name);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
@@ -155,12 +158,14 @@ function twoRun() {
     batsmanOne.run = batsmanOne.run + 2;
     batsmanOne = strikeRateCalculator(batsmanOne);
     updateBatsmanUi(batsmanOne);
+    partnership();
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
     batsmanTw0.run = batsmanTw0.run + 2;
     batsmanTw0 = strikeRateCalculator(batsmanTw0);
     updateBatsmanUi(batsmanTw0);
+    partnership();
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -175,7 +180,6 @@ function twoRun() {
   // bowler extra run
   let bowlerExtra = hasextra(2);
   bowlerOne.run = bowlerOne.run + bowlerExtra;
-
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -198,6 +202,7 @@ function threeRun() {
     batsmanOne.run = batsmanOne.run + 3;
     batsmanOne = strikeRateCalculator(batsmanOne);
     updateBatsmanUi(batsmanOne);
+    partnership();
     localStorage.setItem("currentBatsman", batsmanTw0.name);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
@@ -205,6 +210,7 @@ function threeRun() {
     batsmanTw0.run = batsmanTw0.run + 3;
     batsmanTw0 = strikeRateCalculator(batsmanTw0);
     updateBatsmanUi(batsmanTw0);
+    partnership();
     localStorage.setItem("currentBatsman", batsmanOne.name);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
@@ -240,6 +246,7 @@ function fourRun() {
     batsmanOne.run = batsmanOne.run + 4;
     batsmanOne.four = batsmanOne.four + 1;
     updateBatsmanUi(batsmanOne);
+    partnership();
     batsmanOne = strikeRateCalculator(batsmanOne);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
@@ -248,6 +255,7 @@ function fourRun() {
     batsmanTw0.four = batsmanTw0.four + 1;
     batsmanTw0 = strikeRateCalculator(batsmanTw0);
     updateBatsmanUi(batsmanTw0);
+    partnership();
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -285,6 +293,7 @@ function fiveRun() {
     batsmanOne.run = batsmanOne.run + 5;
     batsmanOne = strikeRateCalculator(batsmanOne);
     updateBatsmanUi(batsmanOne);
+    partnership();
     localStorage.setItem("currentBatsman", batsmanTw0.name);
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
@@ -292,6 +301,7 @@ function fiveRun() {
     batsmanTw0.run = batsmanTw0.run + 5;
     batsmanTw0 = strikeRateCalculator(batsmanTw0);
     updateBatsmanUi(batsmanTw0);
+    partnership();
     localStorage.setItem("currentBatsman", batsmanOne.name);
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
@@ -328,6 +338,7 @@ function sixRun() {
     batsmanOne.six = batsmanOne.six + 1;
     batsmanOne = strikeRateCalculator(batsmanOne);
     updateBatsmanUi(batsmanOne);
+    partnership();
     localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
   } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
     batsmanTw0.bowl = batsmanTw0.bowl + 1;
@@ -335,6 +346,7 @@ function sixRun() {
     batsmanTw0.six = batsmanTw0.six + 1;
     batsmanTw0 = strikeRateCalculator(batsmanTw0);
     updateBatsmanUi(batsmanTw0);
+    partnership();
     localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
   }
   let bowlerOne = localStorage.getItem("bowlerOne");
@@ -463,22 +475,30 @@ function hasextra(run) {
       bonus = 1;
       if (document.getElementById("wideExtra") === item) {
         hasExtraRun.wide = hasExtraRun.wide + 1 + run;
-        console.log("wide");
       }
       if (document.getElementById("noExtra") === item) {
         hasExtraRun.noBall = hasExtraRun.noBall + 1;
-        console.log("noBall");
       }
       if (document.getElementById("byeExtra") === item) {
         hasExtraRun.byes = hasExtraRun.byes + run;
-        console.log("byes");
       }
       if (document.getElementById("legByeExtra") === item) {
         hasExtraRun.legByes = hasExtraRun.legByes + run;
-        console.log("legByes");
       }
     }
   });
   localStorage.setItem("extraRun", JSON.stringify(hasExtraRun));
   return bonus;
+}
+
+// partnership
+
+function partnership() {
+  let batsmanOne = localStorage.getItem("batsmanOne");
+  batsmanOne = JSON.parse(batsmanOne);
+  let batsmanTw0 = localStorage.getItem("batsmanTwo");
+  batsmanTw0 = JSON.parse(batsmanTw0);
+  console.log(batsmanTw0);
+  let pertnership = batsmanOne.run + batsmanTw0.run;
+  localStorage.setItem("Partnership", JSON.stringify(pertnership));
 }
