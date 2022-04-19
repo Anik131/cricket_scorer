@@ -89,7 +89,7 @@ function zeroRun() {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
   // bowler extra run
-  let bowlerExtra = hasextra(0);
+  // let bowlerExtra = hasextra(0);
   bowlerOne.run = bowlerOne.run + bowlerExtra;
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
@@ -109,24 +109,36 @@ function oneRun() {
     parent = row.parentNode;
   parent.insertBefore(row, sibling);
 
-  if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
-    batsmanOne.bowl = batsmanOne.bowl + 1;
-    batsmanOne.run = batsmanOne.run + 1;
-    batsmanOne = strikeRateCalculator(batsmanOne);
-    updateBatsmanUi(batsmanOne);
-    partnership();
-    localStorage.setItem("currentBatsman", batsmanTw0.name);
-    localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
-  } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
-    batsmanTw0.bowl = batsmanTw0.bowl + 1;
-    batsmanTw0.run = batsmanTw0.run + 1;
-    batsmanTw0 = strikeRateCalculator(batsmanTw0);
-    updateBatsmanUi(batsmanTw0);
-    partnership();
-    localStorage.setItem("currentBatsman", batsmanOne.name);
-    localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+  if (checkExtra()) {
+    if (document.getElementById("wideExtra").checked == true) {
+      let extraRun = localStorage.getItem("extraRun");
+      console.log(extraRun["total"]);
+      extraRun.noBall = extraRun.noBall + 1;
+      // extraRun.total = extraRun.total + 2;
+      console.log(extraRun.noBall);
+      // localStorage.setItem("extraRun", JSON.stringify(extraRun));
+    }
+  } else {
+    if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+      batsmanOne.bowl = batsmanOne.bowl + 1;
+      batsmanOne.run = batsmanOne.run + 1;
+      batsmanOne = strikeRateCalculator(batsmanOne);
+      updateBatsmanUi(batsmanOne);
+      partnership();
+      localStorage.setItem("currentBatsman", batsmanTw0.name);
+      localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+    } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+      batsmanTw0.bowl = batsmanTw0.bowl + 1;
+      batsmanTw0.run = batsmanTw0.run + 1;
+      batsmanTw0 = strikeRateCalculator(batsmanTw0);
+      updateBatsmanUi(batsmanTw0);
+      partnership();
+      localStorage.setItem("currentBatsman", batsmanOne.name);
+      localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+    }
   }
-  let bowlerOne = localStorage.getItem("bowlerOne");
+
+  var bowlerOne = localStorage.getItem("bowlerOne");
   bowlerOne = JSON.parse(bowlerOne);
   let bowl = parseFloat(bowlerOne.over) + 0.1;
   bowl = parseFloat(bowl).toFixed(1);
@@ -135,10 +147,10 @@ function oneRun() {
   if ((bowlerOne.over % 1).toFixed(1) == 0.6) {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
-  // bowler extra run
-  let bowlerExtra = hasextra(1);
-  bowlerOne.run = bowlerOne.run + bowlerExtra;
 
+  // bowler extra run
+  // let bowlerExtra = hasextra(1);
+  // bowlerOne.run = bowlerOne.run + bowlerExtra;
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
   localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
@@ -178,7 +190,7 @@ function twoRun() {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
   // bowler extra run
-  let bowlerExtra = hasextra(2);
+  // let bowlerExtra = hasextra(2);
   bowlerOne.run = bowlerOne.run + bowlerExtra;
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
@@ -225,7 +237,7 @@ function threeRun() {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
   // bowler extra run
-  let bowlerExtra = hasextra(3);
+  // let bowlerExtra = hasextra(3);
   bowlerOne.run = bowlerOne.run + bowlerExtra;
   bowlerOne = economyRateCalculator(bowlerOne);
   updateBowlerUi(bowlerOne);
@@ -268,7 +280,7 @@ function fourRun() {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
   // bowler extra run
-  let bowlerExtra = hasextra(4);
+  // let bowlerExtra = hasextra(4);
   bowlerOne.run = bowlerOne.run + bowlerExtra;
 
   bowlerOne = economyRateCalculator(bowlerOne);
@@ -315,7 +327,7 @@ function fiveRun() {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
   // bowler extra run
-  let bowlerExtra = hasextra(5);
+  // let bowlerExtra = hasextra(5);
   bowlerOne.run = bowlerOne.run + bowlerExtra;
 
   bowlerOne = economyRateCalculator(bowlerOne);
@@ -359,7 +371,7 @@ function sixRun() {
     bowlerOne.over = Math.ceil(bowlerOne.over);
   }
   // bowler extra run
-  let bowlerExtra = hasextra(6);
+  // let bowlerExtra = hasextra(6);
   bowlerOne.run = bowlerOne.run + bowlerExtra;
 
   bowlerOne = economyRateCalculator(bowlerOne);
@@ -465,31 +477,31 @@ function wicket() {
   }
 }
 
-function hasextra(run) {
-  let hasExtraRun = localStorage.getItem("extraRun");
-  hasExtraRun = JSON.parse(hasExtraRun);
-  let bonus = 0;
-  var checkboxes = document.getElementsByName("extraWideNoLegByesByes");
-  checkboxes.forEach((item) => {
-    if (item.checked == true) {
-      bonus = 1;
-      if (document.getElementById("wideExtra") === item) {
-        hasExtraRun.wide = hasExtraRun.wide + 1 + run;
-      }
-      if (document.getElementById("noExtra") === item) {
-        hasExtraRun.noBall = hasExtraRun.noBall + 1;
-      }
-      if (document.getElementById("byeExtra") === item) {
-        hasExtraRun.byes = hasExtraRun.byes + run;
-      }
-      if (document.getElementById("legByeExtra") === item) {
-        hasExtraRun.legByes = hasExtraRun.legByes + run;
-      }
-    }
-  });
-  localStorage.setItem("extraRun", JSON.stringify(hasExtraRun));
-  return bonus;
-}
+// function hasextra(run) {
+//   let hasExtraRun = localStorage.getItem("extraRun");
+//   hasExtraRun = JSON.parse(hasExtraRun);
+//   let bonus = 0;
+//   var checkboxes = document.getElementsByName("extraWideNoLegByesByes");
+//   checkboxes.forEach((item) => {
+//     if (item.checked == true) {
+//       bonus = 1;
+//       if (document.getElementById("wideExtra") === item) {
+//         hasExtraRun.wide = hasExtraRun.wide + 1 + run;
+//       }
+//       if (document.getElementById("noExtra") === item) {
+//         hasExtraRun.noBall = hasExtraRun.noBall + 1;
+//       }
+//       if (document.getElementById("byeExtra") === item) {
+//         hasExtraRun.byes = hasExtraRun.byes + run;
+//       }
+//       if (document.getElementById("legByeExtra") === item) {
+//         hasExtraRun.legByes = hasExtraRun.legByes + run;
+//       }
+//     }
+//   });
+//   // localStorage.setItem("extraRun", JSON.stringify(hasExtraRun));
+//   return bonus;
+// }
 
 // partnership
 
@@ -498,7 +510,24 @@ function partnership() {
   batsmanOne = JSON.parse(batsmanOne);
   let batsmanTw0 = localStorage.getItem("batsmanTwo");
   batsmanTw0 = JSON.parse(batsmanTw0);
-  console.log(batsmanTw0);
   let pertnership = batsmanOne.run + batsmanTw0.run;
   localStorage.setItem("Partnership", JSON.stringify(pertnership));
+}
+
+function checkExtra() {
+  let wideballExtra = document.getElementById("wideExtra");
+  let noballExtra = document.getElementById("noExtra");
+  let byeExtra = document.getElementById("byeExtra");
+  let legByeExtra = document.getElementById("legByeExtra");
+
+  if (
+    wideballExtra.checked == true ||
+    noballExtra.checked == true ||
+    byeExtra.checked == true ||
+    legByeExtra.checked == true
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }

@@ -76,7 +76,6 @@ function selectOpeninglayers() {
   bowlerArray.push(bowlerOne);
 
   let extra = {
-    id: "extraRun",
     total: 0,
     wide: 0,
     noBall: 0,
