@@ -88,16 +88,21 @@ function selectOpeninglayers() {
   if (tossOwn == localStorage.getItem("HostName")) {
     if (opted == "Bat") {
       teams = JSON.parse(localStorage.getItem("teams"));
-      teams.forEach((team) => {
+      let batingIndex, bowlingIndex;
+      teams.forEach((team, i) => {
         if (team.name == tossOwn) {
           team.batsmanArray = batsmanArray;
+          batingIndex = i;
         } else if (team.name == localStorage.getItem("VisitorName")) {
           team.bowlerArray = bowlerArray;
+          bowlingIndex = i;
         }
       });
       batBallTeamCheck = {
         battingTeam: tossOwn,
         bowlingTeam: localStorage.getItem("VisitorName"),
+        batingTeamIndex: batingIndex,
+        bowlingTeamIndex: bowlingIndex,
       };
       localStorage.setItem(
         "batBallTeamCheck",
@@ -106,16 +111,20 @@ function selectOpeninglayers() {
       localStorage.setItem("teams", JSON.stringify(teams));
     } else {
       teams = JSON.parse(localStorage.getItem("teams"));
-      teams.forEach((team) => {
+      teams.forEach((team, i) => {
         if (team.name == tossOwn) {
           team.bowlerArray = bowlerArray;
+          bowlingIndex = i;
         } else if (team.name == localStorage.getItem("VisitorName")) {
           team.batsmanArray = batsmanArray;
+          batingIndex = i;
         }
       });
       batBallTeamCheck = {
         battingTeam: localStorage.getItem("VisitorName"),
         bowlingTeam: tossOwn,
+        batingTeamIndex: batingIndex,
+        bowlingTeamIndex: bowlingIndex,
       };
       localStorage.setItem(
         "batBallTeamCheck",
@@ -127,16 +136,20 @@ function selectOpeninglayers() {
   } else if (tossOwn == localStorage.getItem("VisitorName")) {
     if (opted == "Bat") {
       teams = JSON.parse(localStorage.getItem("teams"));
-      teams.forEach((team) => {
+      teams.forEach((team, i) => {
         if (team.name == tossOwn) {
           team.batsmanArray = batsmanArray;
+          batingIndex = i;
         } else if (team.name == localStorage.getItem("HostName")) {
           team.bowlerArray = bowlerArray;
+          bowlingIndex = i;
         }
       });
       batBallTeamCheck = {
         battingTeam: tossOwn,
         bowlingTeam: localStorage.getItem("HostName"),
+        batingTeamIndex: batingIndex,
+        bowlingTeamIndex: bowlingIndex,
       };
       localStorage.setItem(
         "batBallTeamCheck",
@@ -146,16 +159,20 @@ function selectOpeninglayers() {
       localStorage.setItem("teams", JSON.stringify(teams));
     } else {
       teams = JSON.parse(localStorage.getItem("teams"));
-      teams.forEach((team) => {
+      teams.forEach((team, i) => {
         if (team.name == tossOwn) {
           team.bowlerArray = bowlerArray;
+          bowlingIndex = i;
         } else if (team.name == localStorage.getItem("HostName")) {
           team.batsmanArray = batsmanArray;
+          batingIndex = i;
         }
       });
       batBallTeamCheck = {
         battingTeam: localStorage.getItem("HostName"),
         bowlingTeam: tossOwn,
+        batingTeamIndex: batingIndex,
+        bowlingTeamIndex: bowlingIndex,
       };
       localStorage.setItem(
         "batBallTeamCheck",

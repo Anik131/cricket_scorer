@@ -44,11 +44,11 @@ function StartMatchFunction() {
     teams = JSON.parse(localStorage.getItem("teams"));
   }
 
-  let hostTeam = { name: HostName };
+  let hostTeam = { name: HostName, totalRun: 0 };
   teams.push(hostTeam);
   localStorage.setItem("HostName", HostName);
 
-  let visitorTeam = { name: VisitorName };
+  let visitorTeam = { name: VisitorName, totalRun: 0 };
   teams.push(visitorTeam);
   localStorage.setItem("VisitorName", VisitorName);
   localStorage.setItem("teams", JSON.stringify(teams));
