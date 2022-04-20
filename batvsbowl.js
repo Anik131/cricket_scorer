@@ -131,6 +131,42 @@ function oneRun() {
       updateBowlerUi(bowlerOne);
       localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
       updateInformation(batsmanOne, batsmanTw0, bowlerOne);
+    } else {
+      if (
+        (document.getElementById("noExtra").checked == true &&
+          document.getElementById("byeExtra").checked == true) ||
+        (document.getElementById("noExtra").checked == true &&
+          document.getElementById("legByeExtra").checked == true)
+      ) {
+        let extraRun = localStorage.getItem("extraRun");
+        extraRun = JSON.parse(extraRun);
+        extraRun.total = extraRun.total + 2;
+        extraRun.noBall = extraRun.noBall + 2;
+        let teams = JSON.parse(localStorage.getItem("teams"));
+        let batBallTeamCheck = JSON.parse(
+          localStorage.getItem("batBallTeamCheck")
+        );
+        teams[batBallTeamCheck.batingTeamIndex].totalRun =
+          teams[batBallTeamCheck.batingTeamIndex].totalRun + 2;
+        localStorage.setItem("extraRun", JSON.stringify(extraRun));
+        localStorage.setItem("teams", JSON.stringify(teams));
+
+        // bowler
+        var bowlerOne = localStorage.getItem("bowlerOne");
+        bowlerOne = JSON.parse(bowlerOne);
+        bowlerOne.run = bowlerOne.run + 2;
+        bowlerOne = economyRateCalculator(bowlerOne);
+        updateBowlerUi(bowlerOne);
+        localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+        updateInformation(batsmanOne, batsmanTw0, bowlerOne);
+      } else if (document.getElementById("noExtra").checked == true) {
+        // noball
+        console.log("Only no ball");
+      } else if (document.getElementById("byeExtra").checked == true) {
+        console.log("Only Bye Extra");
+      } else if (document.getElementById("legByeExtra").checked == true) {
+        console.log("Only leg bye Extra");
+      }
     }
   } else {
     if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
@@ -141,8 +177,7 @@ function oneRun() {
         localStorage.getItem("batBallTeamCheck")
       );
       teams[batBallTeamCheck.batingTeamIndex].totalRun =
-        teams[batBallTeamCheck.batingTeamIndex].totalRun + 1;
-      console.log(teams[batBallTeamCheck.batingTeamIndex].totalRun + 1);
+        teams[batBallTeamCheck.batingTeamIndex].totalRun + 2;
       batsmanOne = strikeRateCalculator(batsmanOne);
       updateBatsmanUi(batsmanOne);
       partnership();
@@ -465,6 +500,9 @@ function strikeRateCalculator(batsman) {
 function economyRateCalculator(bowler) {
   let economyRate = (bowler.run / bowler.over).toFixed(2);
   bowler.economyRate = economyRate;
+  if (bowler.over == 0) {
+    bowler.economyRate = 0;
+  }
   return bowler;
 }
 function swapBatsman() {
