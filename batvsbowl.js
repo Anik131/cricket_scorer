@@ -160,8 +160,45 @@ function oneRun() {
         localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
         updateInformation(batsmanOne, batsmanTw0, bowlerOne);
       } else if (document.getElementById("noExtra").checked == true) {
-        // noball
-        console.log("Only no ball");
+        if (localStorage.getItem("currentBatsman") == batsmanOne.name) {
+          batsmanOne.run = batsmanOne.run + 1;
+          let extraRun = localStorage.getItem("extraRun");
+          extraRun = JSON.parse(extraRun);
+          extraRun.total = extraRun.total + 1;
+          extraRun.noBall = extraRun.noBall + 1;
+          let teams = JSON.parse(localStorage.getItem("teams"));
+          let batBallTeamCheck = JSON.parse(
+            localStorage.getItem("batBallTeamCheck")
+          );
+          teams[batBallTeamCheck.batingTeamIndex].totalRun =
+            teams[batBallTeamCheck.batingTeamIndex].totalRun + 2;
+          batsmanOne = strikeRateCalculator(batsmanOne);
+          updateBatsmanUi(batsmanOne);
+          partnership();
+          localStorage.setItem("currentBatsman", batsmanTw0.name);
+          localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
+          localStorage.setItem("teams", JSON.stringify(teams));
+          localStorage.setItem("extraRun", JSON.stringify(extraRun));
+        } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
+          batsmanTw0.run = batsmanTw0.run + 1;
+          let extraRun = localStorage.getItem("extraRun");
+          extraRun = JSON.parse(extraRun);
+          extraRun.total = extraRun.total + 1;
+          extraRun.noBall = extraRun.noBall + 1;
+          let teams = JSON.parse(localStorage.getItem("teams"));
+          let batBallTeamCheck = JSON.parse(
+            localStorage.getItem("batBallTeamCheck")
+          );
+          teams[batBallTeamCheck.batingTeamIndex].totalRun =
+            teams[batBallTeamCheck.batingTeamIndex].totalRun + 2;
+          batsmanTw0 = strikeRateCalculator(batsmanTw0);
+          updateBatsmanUi(batsmanTw0);
+          partnership();
+          localStorage.setItem("currentBatsman", batsmanOne.name);
+          localStorage.setItem("batsmanTwo", JSON.stringify(batsmanTw0));
+          localStorage.setItem("teams", JSON.stringify(teams));
+          localStorage.setItem("extraRun", JSON.stringify(extraRun));
+        }
       } else if (document.getElementById("byeExtra").checked == true) {
         console.log("Only Bye Extra");
       } else if (document.getElementById("legByeExtra").checked == true) {
@@ -494,6 +531,9 @@ function updateInformation(batsmanOne, batsmanTw0, bowlerOne) {
 function strikeRateCalculator(batsman) {
   let strikeRate = ((batsman.run / batsman.bowl) * 100).toFixed(2);
   batsman.strikeRate = strikeRate;
+  if (batsman.bowl == 0) {
+    batsman.strikeRate = 0;
+  }
   return batsman;
 }
 
