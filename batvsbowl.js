@@ -179,6 +179,14 @@ function oneRun() {
           localStorage.setItem("batsmanOne", JSON.stringify(batsmanOne));
           localStorage.setItem("teams", JSON.stringify(teams));
           localStorage.setItem("extraRun", JSON.stringify(extraRun));
+          // bowler
+          var bowlerOne = localStorage.getItem("bowlerOne");
+          bowlerOne = JSON.parse(bowlerOne);
+          bowlerOne.run = bowlerOne.run + 2;
+          bowlerOne = economyRateCalculator(bowlerOne);
+          updateBowlerUi(bowlerOne);
+          localStorage.setItem("bowlerOne", JSON.stringify(bowlerOne));
+          updateInformation(batsmanOne, batsmanTw0, bowlerOne);
         } else if (localStorage.getItem("currentBatsman") == batsmanTw0.name) {
           batsmanTw0.run = batsmanTw0.run + 1;
           let extraRun = localStorage.getItem("extraRun");
